@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GameMaster — платформа бронювання сесій настільних рольових ігор. D&D, Call of Cthulhu, Cyberpunk RED, Vaesen та Pathfinder з професійними майстрами гри." />
+  <title>GameMaster — Знайди свою легенду | Бронювання TTRPG сесій</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>" />
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="top">
+    <nav class="nav container" aria-label="Головна навігація">
+      <a href="#top" class="logo">
+        <span class="logo-dice" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="8.6" cy="9.4" r="1.1" fill="currentColor"/><circle cx="15.4" cy="9.4" r="1.1" fill="currentColor"/><circle cx="8.6" cy="14.6" r="1.1" fill="currentColor"/><circle cx="15.4" cy="14.6" r="1.1" fill="currentColor"/></svg>
+        </span>
+        <span class="logo-text">Game<em>Master</em></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#how">Як це працює</a></li>
+        <li><a href="#systems">Системи</a></li>
+        <li><a href="#sessions">Сесії</a></li>
+        <li><a href="#gm">Майстрам</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#sessions" class="btn btn-primary btn-sm">Знайти гру</a>
+        <button class="burger" id="burger" aria-label="Відкрити меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== 1. HERO ===== -->
+    <section class="hero container">
+      <div class="hero-content">
+        <p class="badge"><span class="pulse"></span> Понад 240+ професійних ГМ • 1 200+ сесій щомісяця</p>
+        <h1>Знайди свою легенду. <span class="grad">Забронюй сесію</span> D&amp;D, Call&nbsp;of&nbsp;Cthulhu, Cyberpunk та Vaesen</h1>
+        <p class="hero-sub">GameMaster з’єднує гравців із перевіреними майстрами гри. Обирай систему, слот і стіл — від епічного фентезі до неонового кіберпанку та лавкрафтівського жаху. Онлайн і в Києві, Львові, Дніпрі.</p>
+        <div class="hero-cta">
+          <a href="#sessions" class="btn btn-primary">🎲 Знайти гру</a>
+          <a href="#gm" class="btn btn-ghost">Стати майстром гри</a>
+        </div>
+        <dl class="hero-stats">
+          <div><dt>12 400+</dt><dd>щасливих гравців</dd></div>
+          <div><dt>4.9 ★</dt><dd>середній рейтинг ГМ</dd></div>
+          <div><dt>98%</dt><dd>столів збираються</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-visual" aria-hidden="false">
+        <article class="live-card">
+          <div class="live-head">
+            <span class="live-dot"></span> LIVE ЗА СТОЛОМ
+            <span class="live-tag">D&amp;D 5e</span>
+          </div>
+          <h3>«Прокляття Страда: Туман над Баровією»</h3>
+          <p class="live-gm">ГМ <strong>Олена «Ворона» Кравчук</strong> • ⭐ 4.98 (312 сесій)</p>
+          <div class="party">
+            <div class="avatars"><span>ЕК</span><span>МД</span><span>ТА</span><span class="empty">+</span></div>
+            <p><strong id="heroSeats">2 з 5</strong> місць зайнято • Сб, 19:00 • Online (Roll20 + Discord)</p>
+          </div>
+          <div class="progress"><span style="width:40%"></span></div>
+          <div class="live-foot">
+            <strong>450 ₴ / гравець</strong>
+            <button class="btn btn-gold btn-sm" data-book="Прокляття Страда: Туман над Баровією">Забронювати сесію</button>
+          </div>
+        </article>
+        <div class="float-card fc1">🐙 CoC • «Жах Експреса» — 1 місце!</div>
+        <div class="float-card fc2">🌆 Cyberpunk RED — Night City, 3 місця</div>
+      </div>
+    </section>
+
+    <!-- marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>DUNGEONS &amp; DRAGONS 5E ✦</span><span>CALL OF CTHULHU ✦</span><span>CYBERPUNK RED ✦</span><span>VAESEN ✦</span><span>PATHFINDER 2E ✦</span>
+        <span>DUNGEONS &amp; DRAGONS 5E ✦</span><span>CALL OF CTHULHU ✦</span><span>CYBERPUNK RED ✦</span><span>VAESEN ✦</span><span>PATHFINDER 2E ✦</span>
+      </div>
+    </div>
+
+    <!-- ===== 2. HOW IT WORKS ===== -->
+    <section class="section container" id="how">
+      <p class="eyebrow">Особливості • Як це працює</p>
+      <h2>Від ідеї до кидка к20 — <span class="grad">за 4 кроки</span></h2>
+      <p class="section-sub">Не треба місяцями шукати партію в чатах. Усе — як бронювання квитків у кіно, тільки епічніше.</p>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step-num">01</span>
+          <span class="step-icon">📖</span>
+          <h3>Обери ігрову систему</h3>
+          <p>Фентезі, хорор, кіберпанк чи містика? Фільтруй за жанром, складністю та досвідом — від першої гри до хардкорних кампаній.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">02</span>
+          <span class="step-icon">🧙</span>
+          <h3>Обери слот і ведучого</h3>
+          <p>Переглядай профілі ГМ: рейтинг, відгуки, стиль гри. Обирай зручні дату, час, формат — онлайн або живий стіл.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-icon">🎟️</span>
+          <span class="step-num">03</span>
+          <h3>Забронюй місце за столом</h3>
+          <p>Миттєва оплата, нагадування в Telegram і Discord, готові прегени для новачків. Місце твоє — к20 вже гріється.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">04</span>
+          <span class="step-icon">🐉</span>
+          <h3>Грай і ставай легендою</h3>
+          <p>Занурюйся в історію, прокачуй персонажа та збирай партію на кампанію. Після гри — оціни ГМ і отримай бонуси.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== 3. GAME SYSTEMS ===== -->
+    <section class="section container" id="systems">
+      <p class="eyebrow">Категорії • Ігрові системи</p>
+      <h2>Обери свій <span class="gold">світ</span></h2>
+      <p class="section-sub">П’ять культових всесвітів. Один клік до пригод.</p>
+      <div class="systems-grid">
+        <article class="sys-card reveal" data-system="dnd">
+          <div class="sys-art dnd" aria-hidden="true">⚔️</div>
+          <p class="tag">Фентезі • Пригоди</p>
+          <h3>D&amp;D 5e</h3>
+          <p>Класика жанру: дракони, підземелля, епічні квести. Ідеально для новачків.</p>
+          <div class="sys-meta"><span>👥 124 столи</span><span>★ 4.9</span></div>
+          <button class="btn btn-ghost btn-sm sys-btn" data-filter="dnd">Переглянути сесії →</button>
+        </article>
+        <article class="sys-card reveal" data-system="coc">
+          <div class="sys-art coc" aria-hidden="true">🐙</div>
+          <p class="tag tag-purple">Хорор • Детектив</p>
+          <h3>Заклик Ктулху</h3>
+          <p>Лавкрафтівські розслідування 1920-х. Розсудок — твій найцінніший ресурс.</p>
+          <div class="sys-meta"><span>👥 48 столів</span><span>★ 4.9</span></div>
+          <button class="btn btn-ghost btn-sm sys-btn" data-filter="coc">Переглянути сесії →</button>
+        </article>
+        <article class="sys-card reveal" data-system="cyber">
+          <div class="sys-art cyber" aria-hidden="true">🌆</div>
+          <p class="tag tag-neon">Кіберпанк • Екшн</p>
+          <h3>Кіберпанк RED</h3>
+          <p>Неонове Найт-Сіті, імпланти та корпоративні змови. Стиль понад усе.</p>
+          <div class="sys-meta"><span>👥 61 стіл</span><span>★ 4.8</span></div>
+          <button class="btn btn-ghost btn-sm sys-btn" data-filter="cyber">Переглянути сесії →</button>
+        </article>
+        <article class="sys-card reveal" data-system="vaesen">
+          <div class="sys-art vaesen" aria-hidden="true">🌲</div>
+          <p class="tag tag-green">Містика • Фольклор</p>
+          <h3>Ваесен</h3>
+          <p>Скандинавські міфи XIX століття. Таємне товариство проти істот з лісу.</p>
+          <div class="sys-meta"><span>👥 32 столи</span><span>★ 5.0</span></div>
+          <button class="btn btn-ghost btn-sm sys-btn" data-filter="vaesen">Переглянути сесії →</button>
+        </article>
+        <article class="sys-card reveal" data-system="pf">
+          <div class="sys-art pf" aria-hidden="true">🛡️</div>
+          <p class="tag tag-gold">Епічне фентезі • Тактика</p>
+          <h3>Патфайндер 2e</h3>
+          <p>Глибока тактика і прокачування для тих, хто любить складні билди.</p>
+          <div class="sys-meta"><span>👥 55 столів</span><span>★ 4.8</span></div>
+          <button class="btn btn-ghost btn-sm sys-btn" data-filter="pf">Переглянути сесії →</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 4. SESSIONS ===== -->
+    <section class="section container" id="sessions">
+      <div class="sessions-head">
+        <div>
+          <p class="eyebrow">Онлайн-бронювання • Найближчі ігри</p>
+          <h2>Вільні місця <span class="grad">за столами</span></h2>
+        </div>
+        <div class="filters" role="group" aria-label="Фільтр сесій за системою">
+          <button class="chip active" data-filter="all">Всі</button>
+          <button class="chip" data-filter="dnd">D&amp;D</button>
+          <button class="chip" data-filter="coc">Ктулху</button>
+          <button class="chip" data-filter="cyber">Кіберпанк</button>
+          <button class="chip" data-filter="vaesen">Ваесен</button>
+          <button class="chip" data-filter="pf">Патфайндер</button>
+        </div>
+      </div>
+      <div class="sessions-grid" id="sessionsGrid"><!-- картки рендерить JS --></div>
+    </section>
+
+    <!-- ===== GM CTA ===== -->
+    <section class="section container" id="gm">
+      <div class="gm-banner reveal">
+        <div class="gm-text">
+          <p class="eyebrow">Для майстрів гри</p>
+          <h2>Водиш ігри? <span class="gold">Заробляй на історіях.</span></h2>
+          <ul class="gm-perks">
+            <li>💰 До <strong>25 000 ₴/міс</strong> на власних сесіях</li>
+            <li>🛠️ Безкоштовні інструменти: розклад, оплата, пошук гравців</li>
+            <li>⭐ Рейтинг і просування найкращих ГМ</li>
+          </ul>
+          <form class="gm-form" id="gmForm" novalidate>
+            <label class="visually-hidden" for="gmEmail">Email</label>
+            <input type="email" id="gmEmail" placeholder="твій@email.com" required />
+            <button type="submit" class="btn btn-gold">Стати майстром гри</button>
+          </form>
+          <p class="form-note" id="gmNote">Залиш email — надішлемо гайд «Перші 5 платних сесій».</p>
+        </div>
+        <div class="gm-art" aria-hidden="true">
+          <div class="d20">20</div>
+          <p>“Найкращий ГМ місяця: <strong>Тарас «Лор» Шевчук</strong> — 47 сесій, ★ 5.0”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REVIEWS + FAQ ===== -->
+    <section class="section container duo">
+      <div>
+        <p class="eyebrow">Відгуки party</p>
+        <h2>Гравці вже кинули ініціативу</h2>
+        <div class="reviews">
+          <blockquote class="review reveal">“Перша гра в житті — і одразу Страд! ГМ Олена вела так, що мурахи. Забронювала за 2 хвилини.”<footer>— Марічка, гравець D&amp;D ★★★★★</footer></blockquote>
+          <blockquote class="review reveal">“CoC-ваншот «Жах Експреса» — найкращий хорор-вечір року. Усі вижили. Майже.”<footer>— Денис, слідчий ★★★★★</footer></blockquote>
+          <blockquote class="review reveal">“Як ГМ зібрав повний стіл Cyberpunk за добу. Виплати — наступного дня.”<footer>— Ігор «Нетраннер», ГМ ★★★★★</footer></blockquote>
+        </div>
+      </div>
+      <div id="faq">
+        <p class="eyebrow">FAQ</p>
+        <h2>Часті питання</h2>
+        <div class="accordion">
+          <details open><summary>Я новачок, мене навчать?</summary><p>Так! Познач фільтр «Для новачків». ГМ видасть готового персонажа, пояснить правила за 15 хвилин і допоможе з кидками. 60% наших гравців починали з нуля.</p></details>
+          <details><summary>Як проходить онлайн-сесія?</summary><p>Через Roll20 / Foundry + голосовий Discord/Zoom. Після бронювання отримаєш посилання, преген і чек-лист підготовки.</p></details>
+          <details><summary>Що якщо гра скасується?</summary><p>Повернемо 100% коштів або пересадимо за інший стіл без доплат. Рейтинг ГМ за скасування знижується — тому таке рідкість.</p></details>
+          <details><summary>Скільки коштує місце?</summary><p>Ваншоти — від 300 ₴, кампанії — від 400 ₴/сесія. Перша гра для новачків — зі знижкою 20% за промокодом LEGEND20.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- final CTA -->
+    <section class="container">
+      <div class="final-cta reveal">
+        <h2>Твоя партія вже чекає. <span class="gold">Кинь к20.</span></h2>
+        <p>Найближча сесія — вже сьогодні о 19:00. Місця розбирають швидко.</p>
+        <div class="hero-cta center">
+          <a href="#sessions" class="btn btn-primary">Забронювати сесію</a>
+          <a href="#systems" class="btn btn-ghost">Обрати систему</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 5. FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="f-brand">
+        <a href="#top" class="logo"><span class="logo-dice" aria-hidden="true">🎲</span><span class="logo-text">Game<em>Master</em></span></a>
+        <p>Платформа бронювання TTRPG-сесій. Знаходь майстрів, збирай партію, творі легенди — онлайн та офлайн по всій Україні.</p>
+        <div class="socials">
+          <a href="#" aria-label="Discord">💬</a>
+          <a href="#" aria-label="Telegram">✈️</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Twitch">🟣</a>
+        </div>
+      </div>
+      <nav aria-label="Швидкі посилання">
+        <h4>Навігація</h4>
+        <ul><li><a href="#how">Як це працює</a></li><li><a href="#systems">Ігрові системи</a></li><li><a href="#sessions">Знайти сесію</a></li><li><a href="#gm">Стати ГМ</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </nav>
+      <nav aria-label="Ігрові системи">
+        <h4>Системи</h4>
+        <ul><li><a href="#systems">D&amp;D 5e</a></li><li><a href="#systems">Заклик Ктулху</a></li><li><a href="#systems">Кіберпанк RED</a></li><li><a href="#systems">Ваесен</a></li><li><a href="#systems">Патфайндер 2e</a></li></ul>
+      </nav>
+      <div>
+        <h4>Підписка на квести</h4>
+        <p>Нові столи та промокоди — раз на тиждень, без спаму.</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <label class="visually-hidden" for="newsEmail">Email для підписки</label>
+          <input type="email" id="newsEmail" placeholder="твій@email.com" required />
+          <button type="submit" aria-label="Підписатися">→</button>
+        </form>
+        <p class="form-note" id="newsNote"></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> GameMaster. Всі права захищено. Зроблено з 🎲 в Україні.</p>
+      <p><a href="#">Умови</a> • <a href="#">Конфіденційність</a> • <a href="#">Підтримка</a></p>
+    </div>
+  </footer>
+
+  <!-- Booking modal -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Закрити">✕</button>
+      <p class="eyebrow">Бронювання місця</p>
+      <h3 id="modalTitle">Назва сесії</h3>
+      <p class="modal-meta" id="modalMeta"></p>
+      <label for="seatCount">Кількість місць:</label>
+      <div class="seat-picker">
+        <button id="minusBtn" aria-label="Менше">−</button>
+        <strong id="seatCount">1</strong>
+        <button id="plusBtn" aria-label="Більше">+</button>
+      </div>
+      <p class="modal-total">Разом: <strong id="modalTotal">0 ₴</strong></p>
+      <button class="btn btn-primary full" id="confirmBtn">Підтвердити бронювання</button>
+      <p class="form-note">Безкоштовне скасування за 48 годин • Миттєве підтвердження</p>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
