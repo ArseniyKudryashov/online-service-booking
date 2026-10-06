@@ -9,6 +9,9 @@ const SESSIONS = [
 ];
 
 const grid = document.getElementById('sessionsGrid');
+// На головній (index.html) показуємо лише анонс — 3 найближчі гри.
+// Фільтр над картками фільтрує саме цей анонс. Повний каталог — sessions.html.
+const PREVIEW_LIMIT = 3;
 let currentFilter = 'all';
 let activeSession = null;
 let seatsToBook = 1;
@@ -22,8 +25,10 @@ function seatBadge(s) {
 }
 
 function renderSessions() {
-  const list = SESSIONS.filter(s => currentFilter === 'all' || s.system === currentFilter);
-  if (!list.length) {
+  const filtered = SESSIONS.filter(s => currentFilter === 'all' || s.system === currentFilter);
+  // Обмежуємо видачу анонсом: максимум PREVIEW_LIMIT найближчих карток
+  const list = filtered.slice(0, PREVIEW_LIMIT);
+  if (!filtered.length) {
     grid.innerHTML = '<p style="color:var(--muted)">Сесій за цим фільтром поки немає — спробуй іншу систему.</p>';
     return;
   }

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="Style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>" />
 </head>
 <body>
@@ -17,21 +17,22 @@
   <!-- ===== HEADER ===== -->
   <header class="header" id="top">
     <nav class="nav container" aria-label="Головна навігація">
-      <a href="#top" class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-dice" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="8.6" cy="9.4" r="1.1" fill="currentColor"/><circle cx="15.4" cy="9.4" r="1.1" fill="currentColor"/><circle cx="8.6" cy="14.6" r="1.1" fill="currentColor"/><circle cx="15.4" cy="14.6" r="1.1" fill="currentColor"/></svg>
         </span>
         <span class="logo-text">Game<em>Master</em></span>
       </a>
       <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active" aria-current="page">Головна</a></li>
+        <li><a href="sessions.html">Каталог</a></li>
         <li><a href="#how">Як це працює</a></li>
         <li><a href="#systems">Системи</a></li>
         <li><a href="#sessions">Сесії</a></li>
         <li><a href="#gm">Майстрам</a></li>
-        <li><a href="#faq">FAQ</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="#sessions" class="btn btn-primary btn-sm">Знайти гру</a>
+        <a href="sessions.html" class="btn btn-primary btn-sm">Знайти гру</a>
         <button class="burger" id="burger" aria-label="Відкрити меню" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -47,7 +48,7 @@
         <h1>Знайди свою легенду. <span class="grad">Забронюй сесію</span> D&amp;D, Call&nbsp;of&nbsp;Cthulhu, Cyberpunk та Vaesen</h1>
         <p class="hero-sub">GameMaster з’єднує гравців із перевіреними майстрами гри. Обирай систему, слот і стіл — від епічного фентезі до неонового кіберпанку та лавкрафтівського жаху. Онлайн і в Києві, Львові, Дніпрі.</p>
         <div class="hero-cta">
-          <a href="#sessions" class="btn btn-primary">🎲 Знайти гру</a>
+          <a href="sessions.html" class="btn btn-primary">🎲 Знайти гру</a>
           <a href="#gm" class="btn btn-ghost">Стати майстром гри</a>
         </div>
         <dl class="hero-stats">
@@ -186,7 +187,11 @@
           <button class="chip" data-filter="pf">Патфайндер</button>
         </div>
       </div>
-      <div class="sessions-grid" id="sessionsGrid"><!-- картки рендерить JS --></div>
+      <div class="sessions-grid" id="sessionsGrid"><!-- картки рендерить JS: лише 3 найближчі --></div>
+      <p class="section-sub" style="margin:1rem 0 0">Показуємо лише 3 найближчі гри. Фільтр вище фільтрує саме цей анонс.</p>
+      <div class="hero-cta center" style="margin-top:1.2rem">
+        <a href="sessions.html" class="btn btn-ghost">Більше ігор у каталозі →</a>
+      </div>
     </section>
 
     <!-- ===== GM CTA ===== -->

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Каталог ігрових сесій GameMaster — D&D 5e, Call of Cthulhu, Cyberpunk RED. Онлайн та офлайн столи з професійними майстрами гри." />
+  <title>Каталог ігрових сесій — GameMaster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>" />
+  <style>
+    /* ===== sessions.html — тільки статичні доповнення, без JS ===== */
+    .nav-links a.active{color:#fff;position:relative}
+    .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:linear-gradient(135deg,#38bdf8,#8b5cf6)}
+    .breadcrumbs{font-size:.88rem;color:var(--muted);margin:2rem 0 0}
+    .breadcrumbs a{color:var(--blue);text-decoration:none}
+    .breadcrumbs a:hover{text-decoration:underline}
+    .page-head h1{margin:.5rem 0 .6rem}
+    .catalog-layout{display:grid;grid-template-columns:290px 1fr;gap:1.5rem;align-items:start;padding-bottom:1rem}
+    .filters-panel{background:linear-gradient(180deg,var(--card2),#12152a);border:1px solid var(--line);border-radius:20px;padding:1.5rem;position:sticky;top:88px}
+    .filters-panel h2{font-size:1.1rem;margin:0 0 1rem}
+    .filter-group{border:0;border-top:1px solid var(--line);padding:1.1rem 0}
+    .filter-group:first-of-type{border-top:0;padding-top:0}
+    .filter-group legend{font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);padding:0;margin-bottom:.7rem}
+    .check{display:flex;align-items:center;gap:.65rem;padding:.42rem 0;color:var(--muted);font-size:.94rem;font-weight:500;cursor:pointer}
+    .check:hover{color:#fff}
+    .check input{appearance:none;width:18px;height:18px;flex:0 0 18px;border-radius:6px;border:1px solid rgba(255,255,255,.25);background:#0b0e18;cursor:pointer;position:relative}
+    .check input:checked{background:linear-gradient(135deg,#2563eb,#8b5cf6);border-color:transparent}
+    .check input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:.75rem;font-weight:800}
+    .check input[type="radio"]{border-radius:50%}
+    .check .count{margin-left:auto;font-size:.78rem;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:.1rem .55rem;border-radius:100px}
+    .filters-actions{display:grid;gap:.6rem;margin-top:1.1rem}
+    .filters-note{font-size:.82rem;color:var(--muted);margin-top:.8rem}
+    .catalog-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.2rem;flex-wrap:wrap}
+    .catalog-top p{color:var(--muted);font-size:.92rem}
+    .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.3rem}
+    .center-wrap{text-align:center;margin:2.5rem 0 3.5rem}
+    @media(max-width:960px){
+      .catalog-layout{grid-template-columns:1fr}
+      .filters-panel{position:static}
+      .filters-form{display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem}
+      .filters-actions{grid-column:1/-1}
+    }
+    @media(max-width:640px){
+      /* без JS мобільне меню робимо статичним горизонтальним скролом */
+      .nav-links{position:static;display:flex;flex-direction:row;overflow-x:auto;padding:.4rem 0;border:0;background:none;gap:1rem}
+      .nav .burger{display:none}
+      .nav{flex-wrap:wrap}
+      .filters-form{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <!-- ===== HEADER (скопійовано з index.html) ===== -->
+  <header class="header" id="top">
+    <nav class="nav container" aria-label="Головна навігація">
+      <a href="index.html" class="logo">
+        <span class="logo-dice" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="8.6" cy="9.4" r="1.1" fill="currentColor"/><circle cx="15.4" cy="9.4" r="1.1" fill="currentColor"/><circle cx="8.6" cy="14.6" r="1.1" fill="currentColor"/><circle cx="15.4" cy="14.6" r="1.1" fill="currentColor"/></svg>
+        </span>
+        <span class="logo-text">Game<em>Master</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="sessions.html" class="active" aria-current="page">Каталог</a></li>
+        <li><a href="index.html#how">Як це працює</a></li>
+        <li><a href="index.html#systems">Системи</a></li>
+        <li><a href="index.html#gm">Майстрам</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="sessions.html" class="btn btn-primary btn-sm">Знайти гру</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <p class="breadcrumbs"><a href="index.html">Головна</a> / Каталог сесій</p>
+      <section class="page-head section">
+        <p class="eyebrow">Онлайн-бронювання • Всі столи</p>
+        <h1>Каталог <span class="grad">ігрових сесій</span></h1>
+        <p class="section-sub">Обирай систему, формат і вільний стіл. Усі майстри перевірені, місця оновлюються щодня.</p>
+      </section>
+    </div>
+
+    <div class="container catalog-layout">
+      <!-- ===== Статичні фільтри (без JS) ===== -->
+      <aside class="filters-panel" aria-label="Фільтри каталогу">
+        <h2>🎲 Фільтри</h2>
+        <form class="filters-form" action="#" method="get">
+          <fieldset class="filter-group">
+            <legend>Ігрова система</legend>
+            <label class="check"><input type="checkbox" name="system" value="dnd" checked /> D&amp;D 5e <span class="count">124</span></label>
+            <label class="check"><input type="checkbox" name="system" value="coc" checked /> Call of Cthulhu <span class="count">48</span></label>
+            <label class="check"><input type="checkbox" name="system" value="cyber" checked /> Cyberpunk RED <span class="count">61</span></label>
+          </fieldset>
+          <fieldset class="filter-group">
+            <legend>Формат</legend>
+            <label class="check"><input type="radio" name="format" value="all" checked /> Онлайн + Офлайн</label>
+            <label class="check"><input type="radio" name="format" value="online" /> Онлайн <span class="count">96</span></label>
+            <label class="check"><input type="radio" name="format" value="offline" /> Офлайн <span class="count">42</span></label>
+          </fieldset>
+          <div class="filters-actions">
+            <button class="btn btn-primary btn-sm" type="submit">Застосувати фільтри</button>
+            <a class="btn btn-ghost btn-sm" href="sessions.html">Скинути</a>
+          </div>
+        </form>
+        <p class="filters-note">Статичне демо: фільтри показують доступні опції каталогу.</p>
+      </aside>
+
+      <!-- ===== Сітка з 6 карток ===== -->
+      <section aria-label="Список ігрових сесій">
+        <div class="catalog-top">
+          <p>Знайдено: <strong>6 сесій</strong> • Оновлено сьогодні</p>
+        </div>
+        <div class="sessions-grid catalog-grid">
+          <article class="session-card">
+            <div class="session-top">
+              <span class="sys-pill">D&amp;D 5e</span>
+              <span class="level">Онлайн</span>
+            </div>
+            <h3>Прокляття Страда: Туман над Баровією</h3>
+            <p class="gm">Майстер (GM): <strong>Олена «Ворона» Кравчук</strong> • ⭐ 4.98</p>
+            <div class="session-meta"><span>📅 Сб, 11 жов • 19:00</span><span>📍 Online • Roll20 + Discord</span></div>
+            <p class="seats">🔥 Залишилося 3/5 місць</p>
+            <div class="session-foot"><span class="price">450 ₴ <small>/ гравець</small></span><button class="btn btn-primary btn-sm" type="button">Забронювати місце</button></div>
+          </article>
+
+          <article class="session-card">
+            <div class="session-top">
+              <span class="sys-pill coc">Call of Cthulhu</span>
+              <span class="level">Онлайн</span>
+            </div>
+            <h3>Жах Експреса: Потяг до Інсмута</h3>
+            <p class="gm">Майстер (GM): <strong>Дмитро Глибокий</strong> • ⭐ 4.9</p>
+            <div class="session-meta"><span>📅 Пт, 10 жов • 20:00</span><span>📍 Online • Foundry</span></div>
+            <p class="seats critical">🔥 Залишилося 1/4 місць</p>
+            <div class="session-foot"><span class="price">400 ₴ <small>/ гравець</small></span><button class="btn btn-primary btn-sm" type="button">Забронювати місце</button></div>
+          </article>
+
+          <article class="session-card">
+            <div class="session-top">
+              <span class="sys-pill cyber">Cyberpunk RED</span>
+              <span class="level">Офлайн</span>
+            </div>
+            <h3>Night City: Пограбування «Арасаки»</h3>
+            <p class="gm">Майстер (GM): <strong>Ігор «Нетраннер» Сава</strong> • ⭐ 4.8</p>
+            <div class="session-meta"><span>📅 Нд, 12 жов • 18:00</span><span>📍 Київ • вул. Хрещатик, 22</span></div>
+            <p class="seats">🔥 Залишилося 3/6 місць</p>
+            <div class="session-foot"><span class="price">500 ₴ <small>/ гравець</small></span><button class="btn btn-primary btn-sm" type="button">Забронювати місце</button></div>
+          </article>
+
+          <article class="session-card">
+            <div class="session-top">
+              <span class="sys-pill">D&amp;D 5e</span>
+              <span class="level">Офлайн</span>
+            </div>
+            <h3>Водяний Глибоководдя: Таверна «Позіхаючий портал»</h3>
+            <p class="gm">Майстер (GM): <strong>Максим Долина</strong> • ⭐ 4.85</p>
+            <div class="session-meta"><span>📅 Ср, 15 жов • 19:00</span><span>📍 Львів • офлайн-клуб «К20»</span></div>
+            <p class="seats low">🔥 Залишилося 2/6 місць</p>
+            <div class="session-foot"><span class="price">300 ₴ <small>/ гравець</small></span><button class="btn btn-primary btn-sm" type="button">Забронювати місце</button></div>
+          </article>
+
+          <article class="session-card">
+            <div class="session-top">
+              <span class="sys-pill coc">Call of Cthulhu</span>
+              <span class="level">Офлайн</span>
+            </div>
+            <h3>Шепіт над Данвічем</h3>
+            <p class="gm">Майстер (GM): <strong>Софія Ліндгрен</strong> • ⭐ 5.0</p>
+            <div class="session-meta"><span>📅 Сб, 18 жов • 17:00</span><span>📍 Дніпро • офлайн-клуб</span></div>
+            <p class="seats">🔥 Залишилося 3/4 місць</p>
+            <div class="session-foot"><span class="price">350 ₴ <small>/ гравець</small></span><button class="btn btn-primary btn-sm" type="button">Забронювати місце</button></div>
+          </article>
+
+          <article class="session-card">
+            <div class="session-top">
+              <span class="sys-pill cyber">Cyberpunk RED</span>
+              <span class="level">Онлайн</span>
+            </div>
+            <h3>Червоний хром: Перегони Пусток</h3>
+            <p class="gm">Майстер (GM): <strong>Тарас «Лор» Шевчук</strong> • ⭐ 5.0</p>
+            <div class="session-meta"><span>📅 Чт, 16 жов • 19:30</span><span>📍 Online • Discord + Foundry</span></div>
+            <p class="seats low">🔥 Залишилося 2/5 місць</p>
+            <div class="session-foot"><span class="price">420 ₴ <small>/ гравець</small></span><button class="btn btn-primary btn-sm" type="button">Забронювати місце</button></div>
+          </article>
+        </div>
+        <div class="center-wrap">
+          <a href="index.html#gm" class="btn btn-ghost">🎲 Не знайшов стіл? Стань майстром гри</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER (скопійовано з index.html) ===== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><span class="logo-dice" aria-hidden="true">🎲</span><span class="logo-text">Game<em>Master</em></span></a>
+        <p>Платформа бронювання TTRPG-сесій. Знаходь майстрів, збирай партію, творі легенди — онлайн та офлайн по всій Україні.</p>
+        <div class="socials">
+          <a href="#" aria-label="Discord">💬</a>
+          <a href="#" aria-label="Telegram">✈️</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Twitch">🟣</a>
+        </div>
+      </div>
+      <nav aria-label="Швидкі посилання">
+        <h4>Навігація</h4>
+        <ul><li><a href="index.html">Головна</a></li><li><a href="sessions.html">Каталог сесій</a></li><li><a href="index.html#how">Як це працює</a></li><li><a href="index.html#gm">Стати ГМ</a></li><li><a href="index.html#faq">FAQ</a></li></ul>
+      </nav>
+      <nav aria-label="Ігрові системи">
+        <h4>Системи</h4>
+        <ul><li><a href="index.html#systems">D&amp;D 5e</a></li><li><a href="index.html#systems">Заклик Ктулху</a></li><li><a href="index.html#systems">Кіберпанк RED</a></li><li><a href="index.html#systems">Ваесен</a></li><li><a href="index.html#systems">Патфайндер 2e</a></li></ul>
+      </nav>
+      <div>
+        <h4>Підписка на квести</h4>
+        <p>Нові столи та промокоди — раз на тиждень, без спаму.</p>
+        <form class="news-form" action="#" method="get">
+          <label class="visually-hidden" for="newsEmail">Email для підписки</label>
+          <input type="email" id="newsEmail" name="email" placeholder="твій@email.com" required />
+          <button type="submit" aria-label="Підписатися">→</button>
+        </form>
+        <p class="form-note">Без спаму. Тільки нові столи.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 GameMaster. Всі права захищено. Зроблено з 🎲 в Україні.</p>
+      <p><a href="#">Умови</a> • <a href="#">Конфіденційність</a> • <a href="#">Підтримка</a></p>
+    </div>
+  </footer>
+</body>
+</html>
