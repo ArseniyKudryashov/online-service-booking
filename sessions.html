@@ -37,6 +37,23 @@
     .catalog-top p{color:var(--muted);font-size:.92rem}
     .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.3rem}
     .center-wrap{text-align:center;margin:2.5rem 0 3.5rem}
+    /* ===== Форма індивідуальної заявки — у темній стилістиці сайту ===== */
+    .request-section{margin:0 auto 3.5rem}
+    .request-banner{grid-template-columns:1fr 1.1fr;max-width:1020px;width:100%;margin-inline:auto;align-items:center}
+    .request-form{display:grid;gap:1rem;margin-top:1.2rem}
+    .field{display:grid;gap:.45rem}
+    .field > label,.group-label{font-weight:700;font-size:.9rem}
+    .field > label small{color:var(--muted);font-weight:500}
+    .field input[type="text"],.field input[type="email"],.field input[type="number"],.field select{background:#0b0e18;border:1px solid var(--line);color:#fff;padding:.9rem 1.1rem;border-radius:12px;font-size:1rem;font-family:inherit;width:100%}
+    .field input:focus,.field select:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+    .field select{cursor:pointer}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .radio-group{border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;background:rgba(255,255,255,.02)}
+    .radio-group legend{font-weight:700;font-size:.9rem;padding:0 .4rem}
+    .radio-row{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:.2rem}
+    .radio-row .check input{border-radius:50%}
+    .form-hint{font-size:.82rem;color:var(--muted)}
+    @media(max-width:640px){.field-row{grid-template-columns:1fr}}
     @media(max-width:960px){
       .catalog-layout{grid-template-columns:1fr}
       .filters-panel{position:static}
@@ -192,8 +209,60 @@
           </article>
         </div>
         <div class="center-wrap">
-          <a href="index.html#gm" class="btn btn-ghost">🎲 Не знайшов стіл? Стань майстром гри</a>
+          <a href="#custom-request" class="btn btn-ghost">🎲 Не знайшов стіл? Залиш заявку нижче</a>
         </div>
+      </section>
+    </div>
+
+    <div class="container request-section">
+      <section class="gm-banner request-banner" id="custom-request" aria-labelledby="custom-request-title">
+        <div>
+          <p class="eyebrow">Індивідуальна гра • Свій стіл</p>
+          <h2 id="custom-request-title">Не знайшов стіл? <span class="grad">Зберемо гру під тебе</span></h2>
+          <p class="section-sub" style="margin-bottom:0">Напиши, у що хочеш зіграти — підберемо майстра, дату та партію під твій рівень і формат. Відповідаємо протягом 24 годин.</p>
+          <ul class="gm-perks">
+            <li>🎲 Будь-яка система: від D&amp;D до Vaesen</li>
+            <li>🕓 Онлайн або офлайн у твоєму місті</li>
+            <li>🌱 Новачкам — допомога з правилами та персонажем</li>
+          </ul>
+        </div>
+        <form class="request-form" action="/" method="POST">
+          <div class="field">
+            <label for="req-name">Ім'я / нікнейм гравця</label>
+            <input type="text" id="req-name" name="player_name" placeholder="Напр. Арагорн_UA" autocomplete="nickname" required />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="req-email">Email для зв'язку</label>
+              <input type="email" id="req-email" name="email" placeholder="твій@email.com" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="req-seats">Кількість місць</label>
+              <input type="number" id="req-seats" name="seats" min="1" max="6" value="1" required />
+              <span class="form-hint">Від 1 до 6 гравців за столом.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="req-system">Ігрова система</label>
+            <select id="req-system" name="system" required>
+              <option value="" disabled selected>Обери систему…</option>
+              <option value="dnd5e">D&amp;D 5e</option>
+              <option value="coc">Call of Cthulhu</option>
+              <option value="cyberpunk-red">Cyberpunk RED</option>
+              <option value="vaesen">Vaesen</option>
+            </select>
+          </div>
+          <fieldset class="radio-group">
+            <legend>Формат гри</legend>
+            <div class="radio-row">
+              <label class="check"><input type="radio" name="format" value="online" checked /> Онлайн</label>
+              <label class="check"><input type="radio" name="format" value="offline" /> Офлайн</label>
+            </div>
+          </fieldset>
+          <label class="check"><input type="checkbox" name="newbie_help" value="yes" /> Я новачок, потрібна допомога з правилами</label>
+          <button type="submit" class="btn btn-gold full">Надіслати заявку на стіл →</button>
+          <p class="form-note">Натискаючи кнопку, ти погоджуєшся на зв'язок щодо підбору гри. Без спаму.</p>
+        </form>
       </section>
     </div>
   </main>
